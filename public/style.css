@@ -1,0 +1,139 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0a0f1c;
+  color: #dbe4f0;
+  min-height: 100vh;
+}
+
+/* ---------- Вход ---------- */
+.login-wrap {
+  width: 320px;
+  margin: 120px auto;
+  padding: 28px;
+  background: #0f1a2e;
+  border: 1px solid #1c2c4a;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+}
+
+.login-wrap h1 {
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #4da3ff;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  margin: 12px 0 4px;
+  color: #7d8ea8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input {
+  width: 100%;
+  padding: 9px 10px;
+  background: #0a1220;
+  border: 1px solid #1c2c4a;
+  color: #dbe4f0;
+  border-radius: 4px;
+  outline: none;
+}
+input:focus {
+  border-color: #4da3ff;
+  box-shadow: 0 0 0 2px rgba(77, 163, 255, .15);
+}
+
+button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 10px;
+  background: #1c2c4a;
+  border: 1px solid #4da3ff;
+  color: #4da3ff;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+button:hover {
+  background: #4da3ff;
+  color: #0a0f1c;
+}
+
+.msg {
+  margin-top: 12px;
+  font-size: 13px;
+  min-height: 18px;
+  text-align: center;
+}
+.msg.err { color: #ff6b6b; }
+.msg.ok  { color: #5ad1a0; }
+
+/* ---------- Рабочий стол ---------- */
+.desktop {
+  position: fixed;
+  inset: 0;
+  background: #0a0f1c;
+  background-image:
+    linear-gradient(rgba(77, 163, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77, 163, 255, .04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  padding: 30px;
+}
+
+.icon {
+  width: 110px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  user-select: none;
+  transition: background .15s;
+}
+.icon:hover {
+  background: rgba(77, 163, 255, .12);
+}
+
+.icon-img {
+  font-size: 48px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(77, 163, 255, .4));
+}
+
+.icon-label {
+  font-size: 12px;
+  margin-top: 8px;
+  word-break: break-word;
+  color: #dbe4f0;
+}
+
+/* ---------- Нижняя панель ---------- */
+.topbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  background: #0f1a2e;
+  border-top: 1px solid #1c2c4a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 13px;
+  color: #7d8ea8;
+}
+
+.topbar button {
+  width: auto;
+  margin: 0;
+  padding: 5px 14px;
+  font-size: 11px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Рабочий стол</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="desktop" id="desktop" style="display:none;">
+
+    <div class="icon" id="zipIcon">
+      <div class="icon-img">📦</div>
+      <div class="icon-label">Image_Backup.zip</div>
+    </div>
+
+    <div class="topbar">
+      <span id="opName">—</span>
+      <button id="logoutBtn">Выход</button>
+    </div>
+
+  </div>
+
+  <script>
+    fetch("/api/me")
+      .then(function (r) {
+        if (r.status === 401) { window.location.href = "/index.html"; return null; }
+        return r.json();
+      })
+      .then(function (data) {
+        if (!data || !data.ok) return;
+
+        document.getElementById("desktop").style.display = "block";
+        document.getElementById("opName").textContent = data.user + " · " + data.role;
+
+        document.getElementById("zipIcon").addEventListener("click", function () {
+          var a = document.createElement("a");
+          a.href = "/images/Image_Backup.zip";
+          a.download = "Image_Backup.zip";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+
+        document.getElementById("logoutBtn").addEventListener("click", function () {
+          fetch("/api/logout", { method: "POST" })
+            .then(function () { window.location.href = "/index.html"; });
+        });
+      });
+  </script>
+
+</body>
+</html>
