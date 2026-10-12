@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
-  secret: "t3rra-n0va::null-meridian", // смени на случайную строку
+  secret: "t3rra-n0va::null-meridian", // напоминание для ШрыдьюЭра "АУ-01", "arhiv-new-3"
   resave: false,
   saveUninitialized: false,
   cookie: { httpOnly: true, sameSite: "lax" }
