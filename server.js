@@ -8,7 +8,7 @@ const PORT = 3000;
 // ---------- Пользователи. Хранятся ТОЛЬКО на сервере. ----------
 // В реальном проекте — база данных + хеши (bcrypt).
 const USERS = {
-"АУ-03": { pass: "arhiv-new-3",    role: "auditor"   }
+"АУ-01": { pass: "arhiv-new-3",    role: "auditor"   }
 };
 
 app.use(express.json());
