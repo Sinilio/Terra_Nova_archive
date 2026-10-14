@@ -14,6 +14,11 @@
       <div class="icon-label">Image_Backup.zip</div>
     </div>
 
+    <div class="icon" id="xlsxIcon">
+      <div class="icon-img">📊</div>
+      <div class="icon-label">Diplomatic_staff.xlsx</div>
+    </div>
+
     <div class="topbar">
       <span id="opName">—</span>
       <button id="logoutBtn">Выход</button>
@@ -33,15 +38,27 @@
         document.getElementById("desktop").style.display = "block";
         document.getElementById("opName").textContent = data.user + " · " + data.role;
 
-        document.getElementById("zipIcon").addEventListener("click", function () {
+        // Универсальная функция скачивания
+        function downloadFile(href, name) {
           var a = document.createElement("a");
-          a.href = "/images/Image_Backup.zip";
-          a.download = "Image_Backup.zip";
+          a.href = href;
+          a.download = name;
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
+        }
+
+        // Иконка 1 — ZIP
+        document.getElementById("zipIcon").addEventListener("click", function () {
+          downloadFile("/images/Image_Backup.zip", "Image_Backup.zip");
         });
 
+        // Иконка 2 — XLSX
+        document.getElementById("xlsxIcon").addEventListener("click", function () {
+          downloadFile("/images/Diplomatic_staff.xlsx", "Diplomatic_staff.xlsx");
+        });
+
+        // Выход
         document.getElementById("logoutBtn").addEventListener("click", function () {
           fetch("/api/logout", { method: "POST" })
             .then(function () { window.location.href = "/index.html"; });
