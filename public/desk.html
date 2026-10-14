@@ -38,7 +38,7 @@
         document.getElementById("desktop").style.display = "block";
         document.getElementById("opName").textContent = data.user + " · " + data.role;
 
-        // Универсальная функция скачивания
+
         function downloadFile(href, name) {
           var a = document.createElement("a");
           a.href = href;
@@ -48,17 +48,17 @@
           document.body.removeChild(a);
         }
 
-        // Иконка 1 — ZIP
+
         document.getElementById("zipIcon").addEventListener("click", function () {
           downloadFile("/images/Image_Backup.zip", "Image_Backup.zip");
         });
 
-        // Иконка 2 — XLSX
+
         document.getElementById("xlsxIcon").addEventListener("click", function () {
           downloadFile("/images/Diplomatic_staff.xlsx", "Diplomatic_staff.xlsx");
         });
 
-        // Выход
+
         document.getElementById("logoutBtn").addEventListener("click", function () {
           fetch("/api/logout", { method: "POST" })
             .then(function () { window.location.href = "/index.html"; });
